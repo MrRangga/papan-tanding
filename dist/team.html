@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>detail</title><link rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css"><link rel="stylesheet" href="./src/css/style.css"><link rel="manifest" href="./manifest.json"><script src="https://use.fontawesome.com/64c9157724.js"></script></head><body><nav class="nav-extended"><div class="nav-wrapper white z-index-up"><a href="index.html" class="brand-logo black-text center"><img src="./src/img/pngegg.png" width="50" height="auto" class="pt-10"></a><a href="/#klassmen" class="sidenav-trigger black-text" class="sidenav-trigger"><i class="fa fa-arrow-circle-left">back</i></a><ul class="topnav left hide-on-med-and-down"></ul><ul class="sidenav" id="nav-mobile"></ul></div></nav><div class="carousel carousel-slider mt-10"><a class="carousel-item" href="#two!"><img src="./src/img/uefa_champions_league_00.jpg"></a></div><main id="main" class="container center-custom" style="margin-top: 10px"></main><footer class="footer">&copy copyleft</footer><script src="node_modules/materialize-css/dist/js/materialize.min.js"></script><script src="./src/js/idb.js"></script><script type="module" src="./src/js/api.js"></script><script type="module" src="./src/js/script.js"></script><script type="module">if("serviceWorker" in navigator) {
+                window.addEventListener('load',function(){
+                    navigator.serviceWorker.register('./src/serviceWorker.js').then(function(){
+                        console.log('service worker terdaftar')  
+                    })
+                    .catch(function(){
+                        console.log('service worker gagal terdaftar');
+                        
+                    })
+                })
+            } else{
+                console.log('browser not supported');
+                
+            }
+                 
+            // Periksa fitur Notification API
+            if ("Notification" in window) {
+              requestPermission();
+            } else {
+              console.error("browser not supported");
+            }
+            
+            // Meminta ijin menggunakan Notification API
+            function requestPermission() {
+              Notification.requestPermission().then(function (result) {
+                if (result === "denied") {
+                  console.log("access denied");
+                  return;
+                } else if (result === "default") {
+                  console.error("access denied");
+                  return;
+                }
+                
+                console.log("Fitur notifikasi diijinkan.");
+              });
+            }
+
+            
+                var item = getStandingById()
+                function saveData(data) {
+                    console.log(item)
+                }</script><script src="bundle.js"></script></body></html>
